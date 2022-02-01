@@ -1,6 +1,11 @@
 <?php
 
+use App\Models\Want;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\WorkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// ホームページ
+Route::get('/', [WorkController::class, 'index']);
+
+// 欲しいものを追加
+Route::post('/wants',[WorkController::class, 'store']);
+
+// 欲しいもの更新画面
+Route::post('/wantsedit/{wants}',[WorkController::class, 'edit']);
+
+// 欲しいもの更新処理
+Route::post('/wants/update',[WorkController::class, 'update']);
+
+// 欲しいもの削除
+Route::delete('/want/{want}',[WorkController::class, 'destroy']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [WorkController::class, 'index'])->name('home');

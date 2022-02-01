@@ -15,6 +15,7 @@ class CreateWantsTable extends Migration
     {
         Schema::create('wants', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
             $table->string('want_name');
             $table->integer('want_amount');
             $table->string('want_image');
