@@ -22,16 +22,16 @@ use App\Http\Controllers\WorkController;
 Route::get('/', [WorkController::class, 'index']);
 
 // 欲しいものを追加
-Route::post('/wants',[WorkController::class, 'store']);
+Route::post('/wants', [WorkController::class, 'store']);
 
 // 欲しいもの更新画面
-Route::post('/wantsedit/{wants}',[WorkController::class, 'edit']);
+Route::post('/wantsedit/{wants}', [WorkController::class, 'edit']);
 
 // 欲しいもの更新処理
-Route::post('/wants/update',[WorkController::class, 'update']);
+Route::post('/wants/update', [WorkController::class, 'update']);
 
 // 欲しいもの削除
-Route::delete('/want/{want}',[WorkController::class, 'destroy']);
+Route::delete('/want/{want}', [WorkController::class, 'destroy']);
 
 Auth::routes();
 
